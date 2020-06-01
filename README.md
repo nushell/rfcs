@@ -171,7 +171,7 @@ next major release.
 
 In general, once accepted, RFCs should not be substantially changed. Only very
 minor changes should be submitted as amendments. More substantial changes
-should be new RFCs, with a note added to the original RFC. Exactly what counts
+should be new RFCs, with a note added to the original RFC. What exactly counts
 as a "very minor change" is up to the team to decide.
 
 
