@@ -63,21 +63,12 @@ the RFC process, it may be closed with a polite request to submit an RFC first.
 ## Before creating an RFC
 [Before creating an RFC]: #before-creating-an-rfc
 
-A hastily-proposed RFC can hurt its chances of acceptance. Low quality
-proposals, proposals for previously-rejected features, or those that don't fit
-into the near-term roadmap, may be quickly rejected, which can be demotivating
-for the unprepared contributor. Laying some groundwork ahead of the RFC can
-make the process smoother.
-
-Although there is no single way to prepare for submitting an RFC, it is
-generally a good idea to pursue feedback from other project developers
+It is generally a good idea to pursue feedback from other project developers
 beforehand, to ascertain that the RFC may be desirable; having a consistent
 impact on the project requires concerted effort toward consensus-building.
 
 The most common preparations for writing and submitting an RFC include talking
-the idea over on our [official Discord server] (*maybe later, also a discussion
-forum*). You may file issues on this repo for discussion, but these are
-not as actively looked at by the team.
+the idea over on our [official Discord server], in #design-discussion. You could also file issues on this repo for discussion.
 
 As a rule of thumb, receiving encouraging feedback from long-standing project
 developers is a good indication that the RFC is worth pursuing.
