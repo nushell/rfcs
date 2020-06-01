@@ -248,6 +248,8 @@ replaced by "team" (implying commiters to the main nushell repo on GitHub.)
 
 To give back a little, consider upstreaming improvements here as suggestions to them.
 
+We're considering adding a [stage process similar to TC39](https://tc39.es/process-document/). For now we're starting without explicit stages.
+
 
 [official Discord server]: https://discord.gg/NtAbbGn
 [RFC repository]: https://github.com/nushell/rfcs
