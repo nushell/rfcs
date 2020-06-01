@@ -109,32 +109,15 @@ into Nushell.
     request, and leave a comment on the pull request explaining your changes.
     **Specifically, do not squash or rebase commits after they are visible on the
     pull request.**
-  - At some point, a member of the team will propose a "motion for final
-    comment period" (FCP), along with a *disposition* for the RFC (merge, close,
-    or postpone).
-    - This step is taken when enough of the tradeoffs have been discussed that
-      the team is in a position to make a decision. That does not require
-      consensus amongst all participants in the RFC thread (which is usually
-      impossible). However, the argument supporting the disposition on the RFC
-      needs to have already been clearly articulated, and there should not be a
-      strong consensus *against* that position. Team members use their best
-      judgment in taking this step, and the FCP itself ensures there is ample
-      time and notification for stakeholders to push back if it is made
-      prematurely.
-    - For RFCs with lengthy discussion, the motion to FCP is usually preceded by
-      a *summary comment* trying to lay out the current state of the discussion
-      and major tradeoffs/points of disagreement.
-    - Before actually entering FCP, *all* team members must sign off; this
-      might be the point at which many team members first review the RFC in full
-      depth.
-  - The FCP lasts ten calendar days, so that it is open for at least 5 business
-    days. It is also advertised widely,
-    e.g. in [This Week in Nushell](https://www.notion.so/This-Week-in-Nu-ed589e19f1be47fa9ef562c1757e7ba1).
+  - When the RFC is in a state that justifies community attention, it should be
+    advertised widely, e.g. in [This Week in Nushell](https://www.notion.so/This-Week-in-Nu-ed589e19f1be47fa9ef562c1757e7ba1).
     This way all stakeholders have a chance to lodge any final objections
     before a decision is reached.
-  - In most cases, the FCP period is quiet, and the RFC is either merged or
-    closed. However, sometimes substantial new arguments or ideas are raised,
-    the FCP is canceled, and the RFC goes back into development mode.
+  - At some point after advertising the RFC was advertised publicly, a member
+    of the team will propose a decision for the RFC (merge, close, or postpone).
+    Another team member must sign off on that decision, and can then take the
+    appropriate action. When closing or postponing, the reasons need to be well
+    documented in the PR.
 
 ## The RFC life-cycle
 [The RFC life-cycle]: #the-rfc-life-cycle
@@ -235,9 +218,9 @@ This RFC process started as partial copy of [Rust's RFCs repo](https://github.co
 In this case, their prior art helped us kick-start the RFC process, skipping many of the process work itself.
 
 Since Nushell at this time has no sub-teams, that concept was removed or
-replaced by "team" (implying commiters to the main nushell repo on GitHub.)
+replaced by "team" (implying commiters to the main nushell repo on GitHub).
 
-To give back a little, consider upstreaming improvements here as suggestions to them.
+The FCP stage was removed, to adjust the process towards Nushell's current needs.
 
 We're considering adding a [stage process similar to TC39](https://tc39.es/process-document/). For now we're starting without explicit stages.
 
