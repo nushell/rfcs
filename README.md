@@ -5,7 +5,7 @@
 Many changes, including bug fixes and documentation improvements can be
 implemented and reviewed via the normal GitHub pull request workflow.
 
-Though ssome changes are substantial enough that we ask for these to be
+Though some changes are substantial enough that we ask for these to be
 put through a bit of a design process and produce a consensus among the
 Nushell community.
 
