@@ -27,7 +27,6 @@ stakeholders can be confident about the direction the project is evolving in.
   - [Implementing an RFC]
   - [RFC Postponement]
   - [License]
-  - [Contributions]
   - [Acknowledgements]
 
 
@@ -205,11 +204,6 @@ is "no", then the appropriate response is to close the RFC, not postpone it.)
 [License]: #license
 
 This repository is licensed under the MIT license ([LICENSE](LICENSE) or http://opensource.org/licenses/MIT)
-
-
-### Contributions
-
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
 
 
 ## Acknowledgements
