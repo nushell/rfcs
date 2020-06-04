@@ -19,7 +19,7 @@ stakeholders can be confident about the direction the project is evolving in.
 
   - [Opening](#nushell-rfcs)
   - [Table of Contents]
-  - [When you need to follow this process]
+  - [When you should follow this process]
   - [Before creating an RFC]
   - [What the process is]
   - [The RFC life-cycle]
@@ -45,7 +45,7 @@ ecosystem you are proposing to change, but may include the following:
   - Removing existing features.
   - Changes to internal interfaces, like the plugin architecture.
 
-Some changes do not require an RFC:
+Some changes do not require an RFC. For example:
 
   - Rephrasing, reorganizing, refactoring, or otherwise "changing shape does
     not change meaning".
@@ -179,7 +179,8 @@ review after the RFC has been accepted.
 
 If you are interested in working on the implementation for an "active" RFC, but
 cannot determine if someone else is already working on it, feel free to ask
-(e.g. by leaving a comment on the associated issue).
+(e.g. by leaving a comment on the associated issue; a team member can then
+assign you to the issue). 
 
 
 ## RFC Postponement
