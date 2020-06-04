@@ -13,6 +13,8 @@ The "RFC" (request for comments) process is intended to provide a consistent
 and controlled path for new features to be added to Nushell, so that all
 stakeholders can be confident about the direction the project is evolving in.
 
+In the context of this RFC process, all mentions of "team" refer to all
+commiters of the [main nushell repository on GitHub](https://github.com/nushell/nushell/).
 
 ## Table of Contents
 [Table of Contents]: #table-of-contents

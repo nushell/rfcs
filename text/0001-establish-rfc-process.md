@@ -45,9 +45,10 @@ This started as a copy of Rust's RFC process, as indicated in the (additional) A
 # Unresolved questions
 [unresolved-questions]: #unresolved-questions
 
-The concept of the "team" is currently not well defined (to my knowledge). It doesn't exist in Rust, which instead has sub-teams (for compiler, language and libraries). Actually defining "team" for Nushell, for example as all commiters to the nushell/nushell repostiroy, would be a potential solution.
+None.
 
-If that is undesirable, some aspects of the RFC process have to be changed (search for all mentions of "team" in the README and adjust them). For example accepting RFCs might have to be done by a minimum number of commiters, instead of "all team members".
+Resolved in the RFC process:
+* "Sub-teams" were replaced by "team", defined as "all commiters to the main nushell repository on GitHub".
 
 # Future possibilities
 [future-possibilities]: #future-possibilities
