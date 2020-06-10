@@ -111,7 +111,7 @@ into Nushell.
     **Specifically, do not squash or rebase commits after they are visible on the
     pull request.**
   - When the RFC is in a state that justifies community attention, it should be
-    advertised widely, e.g. in [This Week in Nushell](https://www.notion.so/This-Week-in-Nu-ed589e19f1be47fa9ef562c1757e7ba1).
+    advertised widely, e.g. in [This Week in Nushell](https://github.com/nushell/this_week_in_nu/).
     This way all stakeholders have a chance to lodge any final objections
     before a decision is reached.
   - At some point after advertising the RFC was advertised publicly, a member
