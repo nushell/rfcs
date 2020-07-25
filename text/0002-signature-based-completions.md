@@ -95,7 +95,6 @@ The second technical aspect of this completion engine is to make it store a regi
 This registry would map completion locations and syntax shapes to a list of completers. For example,
 we may have a registry like this:
 
-  |---------------------|--------------|------------|
   | completion location | syntax shape | completers |
   |---------------------|--------------|------------|
   | command             | string       | filename, internal command, external command |
@@ -103,7 +102,6 @@ we may have a registry like this:
   | flag/arg value      | path         | filename |
   | flag name           | string       | flag name |
   | variable            | string       | variable name |
-  |---------------------|--------------|------------|
 
 A completer would be described by the following trait:
 
