@@ -39,8 +39,13 @@ be in the middle of a line, too. For
 
 Here we can show all directories whose name starts with "di". If the user chooses one of the
 suggestions, completion would complete up to the `/`. Note, there are alternative approaches to how
-completion could work here, but this RFC will assume the aforementioned, as it is perhaps the
-simplest.
+completion could work here, but this RFC will assume the aforementioned, as it is the simplest. It
+should be easy to switch to a smarter completer in the future though.
+
+Note that this is different from "hinting", which looks at the line before the cursor and provides a
+suggestion for how to complete the rest of the line. The major difference is that hinting will
+replace the entire line, has less context, and is typically based on command history. This RFC does
+not address hinting.
 
 In all of the above examples, there's the concept of a "completion location". The completion
 location scopes the possible completions. Some examples of such locations, emphasized by angle
