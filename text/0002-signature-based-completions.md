@@ -209,3 +209,8 @@ items. We can't include completions for every possible thing, so it would make s
 expressed externally somehow. At minimum, any implementation for this PR should keep this in mind.
 The idea of a registry that maps locations/shapes to completers seems to be sufficient to satisfy
 that requirement.
+
+We're also not worried about more intelligent completions. Future work could look at information to
+the left and to the right of the cursor to give even better completions. This RFC is more about
+putting the right foundation in place with a simplistic completion engine, and following up with
+improvements to it.
