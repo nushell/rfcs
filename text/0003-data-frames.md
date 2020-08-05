@@ -1,6 +1,6 @@
 - Feature Name: data_frames
 - Start Date: 2020-08-05
-- RFC PR: [nushell/rfcs#0003](https://github.com/nushell/rfcs/pull/0000)
+- RFC PR: [nushell/rfcs#0003](https://github.com/nushell/rfcs/pull/3)
 - Nushell Issue: [nushell/nushell#0000](https://github.com/nushell/nushell/issues/0000)
 
 # Summary
