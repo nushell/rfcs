@@ -7,7 +7,7 @@
 
 [summary]: #summary
 
-The purpose of this RFC is to explore how type deduction can be implemented for nushell. Type deduction is helpful for e.G. aliases with typed variables, (tab-)completion, ...
+The purpose of this RFC is to explore how type deduction can be implemented for nushell. Type deduction is helpful for e.G. aliases with typed variables, static analysis...
 
 # Motivation
 
@@ -29,7 +29,7 @@ For most cases it is sufficient to look at the nushell grammar, to figure out th
 e.G. `echo 1..$var` $var is of type Int as only Int is allowed in a range expression.
 Special cases are listed below.
 
-## As a positional argument to a command | As a argument to flag 
+## As a commands mandatory positional argument | As a argument to flag 
 ```shell Example positional argument
 ls $path | where $filter
 $path -> SyntaxShape::FilePath 
@@ -42,6 +42,33 @@ $year -> SyntaxShape::Int
 
 The shape of a variable used as a positional argument can be infered from the command signature.
 If the signature of the command is not available, no inference will be done.
+
+## As a commands optional positional argument
+```shell Variable in fixed position
+reminder: git log signature: git log [<options>] [<revision range>] [[--] <path>...]
+git log $arg ./src/
+```
+One can infer that $arg has to be a revision range, as there is no other possibility.
+
+```shell Variable in ambiguous position
+git log $arg
+```
+One can infer that $arg is either a revision range or a file path.
+
+```shell Variable in ambiguous position and dependencies
+cmd signature: cmd [<FilePath>] [<FileSize>] [<Block>] [<Int>...]
+cmd $a1 $a2
+```
+This situation is quite complex. 
+For $a1 one can infer that it has to be of type FilePath, FileSize, Block or Int.
+The correct deduction for $a2 depends on the type of $a1. For example: If $a1 is Int, $a2 must also be Int.
+This RFC proposes to insert a deduction for $a2 with 2 things. 
+ - First: Possible types (same as for other inferences too)
+ - Second: A function restricting the possible types
+Such a function can be built by thinking about the cmd signature as a regular expression. One has to built a state machine matching a
+signature as given by the commands signature. After giving the state machine/function $a1 as its first input, the expected inputs of all states
+in which the state machine is, will be the set of accepted types for $a2.
+
 
 ## As a part of a column in a table
 Example
@@ -134,8 +161,10 @@ Please note: One might think of a dependency as a edge in a directed graph, with
 Every Node with no outgoing edge is completly deduced. Every Node with an edge towards such a completly deduced
 node can then be inferred.
 Nodes with cycles (e.G. `ls | where size < $a * $b` $a depends on $b, $b depends on $a) can't be deduced completly.
-It is in question what to return here best dependend on the operator in use.
-(One might also think about this not as a graph problem, but as an CSP.)
+It is in question what to return here best dependend on the operator in use. One might solves this elegantly by handling
+this case the same as for optional positional arguments with dependencies between variables.
+
+(Note: One might also think about this not as a graph problem, but as an CSP.)
 
 ## Merging of deductions.
 Any variable can occur multiple times within the block. In each position the variable can have different possible Types.
@@ -163,12 +192,11 @@ SyntaxShape::Any is a placeholder for any possible type. The above pseudo code h
 fn checked_insert(existing_deductions, new_deductions) -> Result<set_of_deductions, ShellError>{
     if existing_deductions == None return new_deductions
     else match (has_any(existing_deductions), has_any(new_deductions)){
-        (true, true) -> set_merge_including_any(existing_deductions, new_deductions)
-        (true, false) -> new_deductions
-        (false, true) -> existing_deductions
+        (true, true) -> set_union_including_any(existing_deductions, new_deductions)
+        (true, false) -> set_union_excluding_any(new_deductions, set_intersection(existing_deductions, new_deductions))
+        (false, true) -> set_union_excluding_any(existing_deductions, set_intersection(existing_deductions, new_deductions))
         (false, false) -> set_intersection(existing_deductions, new_deductions)?
     }
-    else return set_intersection(existing_deductions, new_deductions)
 }
 
 existing_deductions = checked_insert(existing_deductions, new_deductions);
@@ -178,11 +206,13 @@ existing_deductions = checked_insert(existing_deductions, new_deductions);
 
 [reference-level-explanation]: #reference-level-explanation
 
-Please see: https://github.com/nushell/nushell/pull/2486
+A start may be: https://github.com/nushell/nushell/pull/2486
 
 # Drawbacks
 
 [drawbacks]: #drawbacks
+
+None I can think of.
 
 # Rationale and alternatives
 
@@ -195,6 +225,15 @@ Please see: https://github.com/nushell/nushell/pull/2486
 # Unresolved questions
 
 [unresolved-questions]: #unresolved-questions
+
+## Deducing of result type of column paths
+Currently it is not possible to infer the shape of column paths pointing to a table given by a prior command
+in the pipeline. 
+```shell $size nor $name are deducable
+ls | where size == $size | get name | where $it == $name
+```
+
+It is yet not clear how to best integrate this into nushell. Some thoughts can be found at: https://github.com/nushell/nushell/pull/2486#issuecomment-687704131.
 
 # Future possibilities
 
