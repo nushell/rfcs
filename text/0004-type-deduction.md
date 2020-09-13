@@ -55,7 +55,8 @@ cmd signature: cmd [<FilePath>] [<FileSize>] [<Block>] [<Int>...]
 cmd $a1 $a2
 ```
 This situation is quite complex. For $a1 one can infer that it has to be of type FilePath, FileSize, Block or Int. The correct deduction for $a2 depends on the type of $a1. For example: If $a1 is Int, $a2 must also be Int.
-This RFC proposes to insert a deduction for $a2 with 2 things. 
+Variables may occur later on in the AST and the later usages might limit the possibilities of how the variables are used as positional arguments. Therefore deducing this situation has to be revisited after visiting the whole AST.
+If at a later point of time this situation didn't decay to a simpler situation (e.G. $a2 is later on used as a Block, making this as a situation from above 'Variable in ambiguous position'), this RFC proposes to insert a deduction for $a2 with 2 things.
  - First: Possible types (same as for other inferences too)
  - Second: A function restricting the possible types
 Such a function can be built by thinking about the cmd signature as a regular expression. One has to built a state machine matching a signature as given by the commands signature. After giving the state machine/function $a1 as its first input, the expected inputs of all states in which the state machine is, will be the set of accepted types for $a2.
