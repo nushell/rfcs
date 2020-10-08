@@ -109,26 +109,21 @@ The variable must be of type String.
 
 
 ## Correct Inference for dependencies
-Extra care has to be taken when deducing in binary expressions, with an Operator (like Plus, Minus, Multiply, Divide, In (var on lhs), NotIn (var on lhs)) where the variable type depends on the type of the other side. There are 2 special cases that have to be handled.
+Extra care has to be taken when deducing in binary expressions, with an Operator (like Plus, Minus, Multiply, Divide, In (var on lhs), NotIn (var on lhs)) where the variable type depends on the type of the other side.
 
-### Special case 1: Binary with variables on both sides
-```shell Example
+```shell Variables on both sides
 ls | where size < $a * $b; kill $a
 $a -> SyntaxShape::Int
 $b -> SyntaxShape::Unit
 ```
-
-At the time of traversing the AST, any deduction for any variable may not be present, and if present may not be complete. Therefore constellations in which the deduction of one variable depends on the deduction of another one (we will call these constellations 'dependencies'), have to be postponed. 
-
-### Special case 2: Binary which depends on the result type of another expression
-```shell Example
+```shell Variable on one side, math expression with variables on other
 ls | where size < $a * ($b * $c); kill $b $c
 $a -> SyntaxShape::Unit
 $b -> SyntaxShape::Int
 $c -> SyntaxShape::Int
 ```
-Same as above. But this time $a also depends on the result type of ($b * $c). This dependency has to be postponed, as $b nor $c can be deduced at the point in time of traversing the AST.
 
+At the time of traversing the AST, any deduction for any variable may not be present, and if present may not be complete. Therefore constellations in which the deduction of one variable depends on the deduction of another one (we will call these constellations 'dependencies'), have to be postponed.
 
 As soon as the AST is traversed, the dependencies have to be resolved.
 Please note: One might think of a dependency as a edge in a directed graph, with variables as nodes. Every Node with no outgoing edge is completly deduced. Every Node with an edge towards such a completly deduced node can then be inferred. Nodes with cycles (e.G. `ls | where size < $a * $b` $a depends on $b, $b depends on $a) can't be deduced completly.
