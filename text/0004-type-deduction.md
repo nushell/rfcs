@@ -38,28 +38,18 @@ The shape of a variable used as a positional argument can be infered from the co
 If the signature of the command is not available, no inference will be done. At the time of writing, no signature will be available for external commands.
 
 ## As a commands optional positional argument
-```shell Variable in fixed position
-reminder: git log signature: git log [<options>] [<revision range>] [[--] <path>...]
+Note: At the time of writing this rfcs, optional positional arguments are parsed in order. Meaning: No optional positional argument can be left out. Trickier deductions might be needed, if the parser would handle optional arguments differently.
+```shell One optional variable 
+git log signature: git log [<options>] [<revision range>] [[--] <path>...]
 git log $arg ./src/
 ```
 One can infer that $arg has to be a revision range, as there is no other possibility.
 
-```shell Variable in ambiguous position
-git log $arg
-```
-One can infer that $arg is either a revision range or a file path.
-
-```shell Variable in ambiguous position and dependencies
+```shell Multiple variables
 cmd signature: cmd [<FilePath>] [<FileSize>] [<Block>] [<Int>...]
 cmd $a1 $a2
 ```
-This situation is quite complex. For $a1 one can infer that it has to be of type FilePath, FileSize, Block or Int. The correct deduction for $a2 depends on the type of $a1. For example: If $a1 is Int, $a2 must also be Int.
-Variables may occur later on in the AST and the later usages might limit the possibilities of how the variables are used as positional arguments. Therefore deducing this situation has to be revisited after visiting the whole AST.
-If at a later point of time this situation didn't decay to a simpler situation (e.G. $a2 is later on used as a Block, making this as a situation from above 'Variable in ambiguous position'), this RFC proposes to insert a deduction for $a2 with 2 things.
- - First: Possible types (same as for other inferences too)
- - Second: A function restricting the possible types
-Such a function can be built by thinking about the cmd signature as a regular expression. One has to built a state machine matching a signature as given by the commands signature. After giving the state machine/function $a1 as its first input, the expected inputs of all states in which the state machine is, will be the set of accepted types for $a2.
-
+One can infer that $a1 is FilePath and $a2 is FileSize
 
 ## As a part of a column in a table
 Example
@@ -139,8 +129,7 @@ Same as above. But this time $a also depends on the result type of ($b * $c). Th
 
 As soon as the AST is traversed, the dependencies have to be resolved.
 Please note: One might think of a dependency as a edge in a directed graph, with variables as nodes. Every Node with no outgoing edge is completly deduced. Every Node with an edge towards such a completly deduced node can then be inferred. Nodes with cycles (e.G. `ls | where size < $a * $b` $a depends on $b, $b depends on $a) can't be deduced completly.
-It is in question what to return here best dependend on the operator in use. One might solves this elegantly by handling
-this case the same as for optional positional arguments with dependencies between variables.
+It is in question what to return here best dependend on the operator in use. One might solves this elegantly by returning the dependency and let the caller handle it (if needed). 
 (Note: One might also think about this not as a graph problem, but as an CSP.)
 
 ## Merging of deductions.
