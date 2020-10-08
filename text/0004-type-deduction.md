@@ -189,6 +189,7 @@ None I can think of.
 
 ## Deducing of result type of column paths
 Currently it is not possible to infer the shape of column paths pointing to a table given by a prior command in the pipeline. 
+Input and Output types of each command would be needed to support this deduction.
 ```shell $size nor $name are deducable
 ls | where size == $size | get name | where $it == $name
 ```
