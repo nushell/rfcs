@@ -35,7 +35,7 @@ $year -> SyntaxShape::Int
 ```
 
 The shape of a variable used as a positional argument can be infered from the command signature.
-If the signature of the command is not available, no inference will be done.
+If the signature of the command is not available, no inference will be done. At the time of writing, no signature will be available for external commands.
 
 ## As a commands optional positional argument
 ```shell Variable in fixed position
