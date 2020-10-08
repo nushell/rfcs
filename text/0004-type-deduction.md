@@ -54,9 +54,12 @@ One can infer that $a1 is FilePath and $a2 is FileSize
 ## As a part of a column in a table
 Example
 ```shell
-echo [[names, ranking]; [$best_shell, 1] [fish, 2] [zsh, $zsh_ranking] [bash, 4]]
+echo [[names, $ranking_col_name]; [$best_shell, 1] [fish, 2] [zsh, $zsh_ranking] [bash, 4]]
+$ranking_col_name -> SyntaxShape::String
+$best_shell -> SyntaxShape::Any
+$zsh_ranking -> SyntaxShape::Any
 ```
-The types within a column are uniform (right?). Therefore one can deduce the type of a variable in a column by looking at other expressions used in the table. For variables in table headers, String seems as the most applicable SyntaxShape.
+The types within a column are heterogeneous. Therefore one can't deduce the type of a variable in a column. For variables in table headers, String seems as the most applicable SyntaxShape.
 
 ## As part of a binary expression
 A distinction has to be made by the operator in use (and depending on the operator additionaly the side on which the variable appears).
