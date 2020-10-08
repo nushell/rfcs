@@ -81,7 +81,7 @@ $values -> SyntaxShape::Table
 #### Variable on left side
 ```shell Example
 ls | where $value in [...]
-$values -> All SyntaxShapes present in the Table ([...])
+$value -> All SyntaxShapes present in the Table ([...])
 ```
 
 ### Operator Plus Minus
