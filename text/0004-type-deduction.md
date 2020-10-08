@@ -69,7 +69,7 @@ A distinction has to be made by the operator in use (and depending on the operat
 ls | where $it.name == LICENSE || $catch_all
 $catch_all -> SyntaxShape::Boolean
 ```
-The variable can be of any type that is automaticaly decayable to a boolean value.
+The variable can be of any type that can be coerced to a boolean value.
 
 ### Operator In NotIn
 #### Variable on right side
