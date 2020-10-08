@@ -26,8 +26,7 @@ Special cases are listed below.
 
 ## As a commands mandatory positional argument | As a argument to flag 
 ```shell Example positional argument
-ls $path | where $filter
-$path -> SyntaxShape::FilePath 
+ls | where $filter
 $filter -> SyntaxShape::Math
 ```
 ```shell Example named argument
