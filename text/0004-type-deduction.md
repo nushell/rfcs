@@ -167,7 +167,7 @@ existing_deductions = checked_insert(existing_deductions, new_deductions);
 
 [reference-level-explanation]: #reference-level-explanation
 
-A start may be: https://github.com/nushell/nushell/pull/2486
+A start may be: https://github.com/nushell/nushell/pull/2685
 
 # Drawbacks
 
