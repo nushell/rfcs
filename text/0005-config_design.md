@@ -103,6 +103,7 @@ I did a very little research what other shells are doing:
 - Zsh: 
     - Package Manager: https://github.com/ohmyzsh/ohmyzsh
     - https://github.com/ohmyzsh/ohmyzsh/issues/6788 (TLDR: Install oh-my-zsh, add a .zsh file under a specific path). I am not sure how easy one can add someone else package, if he didn't contribute it to the (kinda central?) plugin repository under ohmyzsh.
+    - Doesn't look to me, that they have some plugin/package structure.
 - Fish:
     - Package Manager: https://github.com/oh-my-fish/oh-my-fish
     - Example Package: https://github.com/oh-my-fish/plugin-expand
