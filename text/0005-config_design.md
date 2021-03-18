@@ -30,12 +30,12 @@ vpn_client = "/opt/vpn_client/bin"
 cargo = "/home/leo/.cargo"
 ```
 4. Some settings are not put inside a table `[...]`. Those could at least be grouped under `[general]`.
-5. With `.nu-env` and the global config being merged, we can think of autoenv as a local config (a config local to a directory). Therefore we could rename `.nu-env` to `.nu/config.toml`. (We may need to adapt the `autoenv` commands accordingly)
-    - Rename autoenv trust to `package trust` (see 9)
-    - Rename autoenv untrust to `package untrust` (see 9)
+5. With `.nu-env` and the "global" config under `$HOME/.config/nu/config.toml` being merged, we can think of `autoenv` as a local config (a config local to a directory). Therefore we could rename `.nu-env` to `.nu/config.toml`. (We may need to adapt the `autoenv` commands accordingly)
+    - Rename `autoenv trust` to `package trust` (see 9)
+    - Rename `autoenv untrust` to `package untrust` (see 9)
 6. We have `startup` and `on_exit`. We could rename `startup` to `on_enter` (Better naming, better consistency (`enter`/`exit` command)).
-7. `startup` for most people I guess (?), contains mostly aliases and defs. Aliases are short and can be put under one table `[aliases]`, `defs` might be long and best put into individual files. We could add a directory `defs` for defs.
-Example: File $HOME/.config/nu/defs/cd.nu
+7. `startup` for most people I guess (?), contains mostly `alias`'es and `def`'s. Aliases are short and can be put under one table `[aliases]`, `def`'s might be long and best put into individual files. We could add a directory `defs` for `def`'s.
+Example: File `$HOME/.config/nu/defs/cd.nu`
 ```nu
 def cd [path] {ls $path; ^cd $path}
 ```
@@ -69,7 +69,8 @@ With adding a `defs` directory, we already make the step from a config file, to 
 - Nu now loads all `packages` in `$nu.packpath`
     - `$nu.packpath` contains a package with a `defs` directory, full of wrapper around git commands. Those are loaded.
     - `$nu.packpath` also contains a package with a config.toml file having a `[theme]` table. Now nu sets the theme from it.
-The nice thing about it is, that:
+
+The nice thing about it is:
 - `package`'s can be version controlled (simple git repo) and therefore be easily made available online.
 - Writing a `package manager` is now the same as writing a wrapper around git.
 
