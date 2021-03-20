@@ -15,7 +15,7 @@ Important: This document is written as if, https://github.com/nushell/nushell/pu
 Nushell evolved over time and features got added. The current config format may need to be adapted to better represent nushells capabilities to new users.
 
 The config structure is mostly well done, but some enhancements I can think of:
-1. Every `[...]` table has a name without config, but there is `[color_config]` which I think should be renamed to `theme` (better consistency, better naming).
+1. Every `[...]` table has a name without config, but there is `[color_config]` which I think should be renamed to ~~`theme`~~ `table_colors`(better consistency, better naming).
 2. We could add a table for aliases. Example:
 ```toml
 [aliases]
