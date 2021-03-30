@@ -15,7 +15,7 @@ so on.
 
 As both a language and a tool, Nushell would benefit both by hitting 1.0 and by reaching 1.0 at the highest possible quality in a reasonable amount of time.
 
-This allow potential users who have waited for Nushell to reach a stable release to start using Nushell. It also allow developers to create Nushell scripts with confidence that these scripts will continue working in the future.
+This allows potential users who have waited for Nushell to reach a stable release to start using Nushell. It also allows developers to create Nushell scripts with confidence that these scripts will continue working in the future.
 
 # Guide-level explanation
 [guide-level-explanation]: #guide-level-explanation
