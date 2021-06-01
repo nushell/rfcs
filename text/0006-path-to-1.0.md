@@ -29,7 +29,7 @@ The lists below show features we hope will make it for 1.0. It may also be possi
 # Reference-level explanation
 [reference-level-explanation]: #reference-level-explanation
 
-## 0.6 milestone
+## 0.60 milestone
 
 The most important things to get designed and implemented first are
 the changes which will be the most disruptive to current users of
@@ -60,41 +60,41 @@ Here are some of the syntax points that would be good to solidify:
 
 **Variables and expressions**
 
-* Variables currently use `$` sometimes and not others. We should
+- [x] Variables currently use `$` sometimes and not others. We should
   settle on when and why.
-* Expressions invocations currently use `$()`. We should explore `()`
+- [x] Expressions invocations currently use `$()`. We should explore `()`
   as a possible simpler syntax.
-* Clarify difference between `each`, `if`, and `where`. The `$it`
+- [ ] Clarify difference between `each`, `if`, and `where`. The `$it`
   variable feels a bit special and also unpredictable. We need a
   design that makes it easy to predict when it will be available and
   what it will do.
-* A possible new `$in` variable, or related, to represent the input to
+- [ ] A possible new `$in` variable, or related, to represent the input to
   a command
-* A yield or `$out` style variable to allow multiple lines to
+- [ ] A yield or `$out` style variable to allow multiple lines to
   participate in output in a command
 
 **Additional syntax**
 
-* Doc comments: what are they and where can we use them
-* Blocks have parameters but there is no syntax for them, yet
+- [ ] Doc comments: what are they and where can we use them
+- [x] Blocks have parameters but there is no syntax for them, yet
 
 ### Core data model
 
-* Streams as values. Will it be possible? If so, how will it work?
+- [ ] Streams as values. Will it be possible? If so, how will it work?
+  * eg) `ls | echo %1`
+  * Related to the above: xargs-like functionality
 
 ### Types
 
-* Future-proof type syntax
-* Enable building support for external command autocomplete
+- [ ] Future-proof type syntax
+- [ ] Enable building support for external command autocomplete
 
 ### Philosophy
 
-* Are repl/script the same? Where do we differ? Related: align `;` to work the same as `\n`.
-* Should we raise exceptions if there are holes in the data as you
-  process it? When and how?
+- [ ] Are repl/script the same? Where do we differ? Related: align `;` to work the same as `\n`.
+- [ ] Should we raise exceptions if there are holes in the data as you process it? When and how?
   
-  
-## 0.8 milestone
+## 0.80 milestone
 
 The key part of the 0.8 milestone is to **finish language-breaking
 changes**. As part of this, we'd also like to finish semantic changes
@@ -103,69 +103,69 @@ Nushell language.
 
 ### Core commands
 
-* Clean up `str`
-* Change `echo` to actually echo to the screen
-* Use another function to mean "send value to pipeline"
-* Final list of internal commands
+- [ ] Clean up `str`
+- [ ] Change `echo` to actually echo to the screen
+- [x] Use another function to mean "send value to pipeline"
+- [ ] Explicit iteration expansion (eg, like what `echo 1..10` is today)
+- [ ] Final list of internal commands
 
 ### Ergonomics
 
-* Improve adding paths to the PATH
-* Cache config
-* Set baseline performance target
-* Shorthand column `get`
-* Completions
-* Script parameters
+- [ ] Improve adding paths to the PATH
+- [ ] Cache config
+- [ ] Set baseline performance target
+- [ ] Shorthand column `get`
+- [ ] Completions
+- [ ] Script parameters
 
 ### Language concepts
 
-* Imports and modules
-* When do we iterate? Should `=` iterate?
-* Can you operate on the incoming pipeline as a single value? If so, how?
-* Related to the above: xargs-like functionality
+- [ ] Imports and modules
+- [ ] When do we iterate? Should `=` iterate?
+- [ ] Can you operate on the incoming pipeline as a single value? If so, how?
 
 ### Configuration
 
-* Solidify the file formats we'll use
+- [ ] Solidify the file formats we'll use
 
 ## 1.0 milestone
 
 ### Future-proofing
 
-* Future-proof string/path interpolation
-* Future-proof ability to process stream in parallel
-* Scope-down and future-proof plugin protocol
+- [ ] Future-proof string/path interpolation
+- [ ] Future-proof ability to process stream in parallel
+- [ ] Scope-down and future-proof plugin protocol
 
 ### Documentation
 
-* Book 1.0
-* Translations of documents
+- [ ] Book 1.0
+- [ ] Translations of documents
 
 ### Ergonomics
 
-* Paging
-* Per-session history and global history
-* Polished error messages
-* Fix starship issues
-* Better structured data matching (like grep over structured data)
+- [ ] Paging
+- [ ] Per-session history and global history
+- [ ] Polished error messages
+- [ ] Fix starship issues
+- [ ] Better structured data matching (like grep over structured data)
 
 ### Final designs
 
-* Input/output types
-* External->Internal final design
-* Internal->External final design
+- [ ] Input/output types
+- [ ] External->Internal final design
+- [ ] Internal->External final design
 
 ### Shipping quality
 
-* Sign binary releases
-* Default install artifacts (what will Nushell include at 1.0?)
-* Move unstable features behind feature flags
-* Enable self-update capabilities?
-* Ship wasm demo for 1.0
+- [ ] Sign binary releases
+- [ ] Default install artifacts (what will Nushell include at 1.0?)
+- [ ] Move unstable features behind feature flags
+- [ ] Enable self-update capabilities?
+- [ ] Ship wasm demo for 1.0
 
 ### Fixing outstanding bugs
 
-* Remove all dynamic scoping. Ensure all scoping is lexical.
+- [ ] Remove all dynamic scoping. Ensure all scoping is lexical.
 
 # Drawbacks
 [drawbacks]: #drawbacks
