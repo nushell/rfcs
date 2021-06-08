@@ -83,6 +83,8 @@ Here are some of the syntax points that would be good to solidify:
 - [ ] Streams as values. Will it be possible? If so, how will it work?
   * eg) `ls | echo %1`
   * Related to the above: xargs-like functionality
+- [ ] Explor dataframes as the transport for data inside of the engine
+  * eg) polars+apache arrow
 
 ### Types
 
