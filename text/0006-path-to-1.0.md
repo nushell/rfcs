@@ -89,6 +89,10 @@ Here are some of the syntax points that would be good to solidify:
 - [ ] Future-proof type syntax
 - [ ] Enable building support for external command autocomplete
 
+### Fixing outstanding bugs
+
+- [ ] Remove all dynamic scoping. Ensure all scoping is lexical.
+
 ### Philosophy
 
 - [ ] Are repl/script the same? Where do we differ? Related: align `;` to work the same as `\n`.
@@ -114,7 +118,7 @@ Nushell language.
 - [ ] Improve adding paths to the PATH
 - [ ] Cache config
 - [ ] Set baseline performance target
-- [ ] Shorthand column `get`
+- [x] Shorthand column `get`
 - [ ] Completions
 - [ ] Script parameters
 
@@ -132,8 +136,7 @@ Nushell language.
 
 ### Future-proofing
 
-- [ ] Future-proof string/path interpolation
-- [ ] Future-proof ability to process stream in parallel
+- [x] Future-proof string/path interpolation
 - [ ] Scope-down and future-proof plugin protocol
 
 ### Documentation
@@ -146,12 +149,11 @@ Nushell language.
 - [ ] Paging
 - [ ] Per-session history and global history
 - [ ] Polished error messages
-- [ ] Fix starship issues
+- [x] Fix starship issues
 - [ ] Better structured data matching (like grep over structured data)
 
 ### Final designs
 
-- [ ] Input/output types
 - [ ] External->Internal final design
 - [ ] Internal->External final design
 
@@ -163,9 +165,11 @@ Nushell language.
 - [ ] Enable self-update capabilities?
 - [ ] Ship wasm demo for 1.0
 
-### Fixing outstanding bugs
 
-- [ ] Remove all dynamic scoping. Ensure all scoping is lexical.
+### Possible inclusion
+
+- [ ] Future-proof ability to process stream in parallel
+
 
 # Drawbacks
 [drawbacks]: #drawbacks
