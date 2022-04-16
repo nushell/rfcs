@@ -64,11 +64,11 @@ Here are some of the syntax points that would be good to solidify:
   settle on when and why.
 - [x] Expressions invocations currently use `$()`. We should explore `()`
   as a possible simpler syntax.
-- [ ] Clarify difference between `each`, `if`, and `where`. The `$it`
+- [x] Clarify difference between `each`, `if`, and `where`. The `$it`
   variable feels a bit special and also unpredictable. We need a
   design that makes it easy to predict when it will be available and
   what it will do.
-- [ ] A possible new `$in` variable, or related, to represent the input to
+- [x] A possible new `$in` variable, or related, to represent the input to
   a command
 - [ ] A yield or `$out` style variable to allow multiple lines to
   participate in output in a command
@@ -80,24 +80,24 @@ Here are some of the syntax points that would be good to solidify:
 
 ### Core data model
 
-- [ ] Streams as values. Will it be possible? If so, how will it work?
+- [x] Streams as values. Will it be possible? If so, how will it work? (now `$in`)
   * eg) `ls | echo %1`
   * Related to the above: xargs-like functionality
-- [ ] Explor dataframes as the transport for data inside of the engine
+- [ ] Explore dataframes as the transport for data inside of the engine
   * eg) polars+apache arrow
 
 ### Types
 
 - [ ] Future-proof type syntax
-- [ ] Enable building support for external command autocomplete
+- [x] Enable building support for external command autocomplete
 
 ### Fixing outstanding bugs
 
-- [ ] Remove all dynamic scoping. Ensure all scoping is lexical.
+- [x] Remove all dynamic scoping. Ensure all scoping is lexical.
 
 ### Philosophy
 
-- [ ] Are repl/script the same? Where do we differ? Related: align `;` to work the same as `\n`.
+- [x] Are repl/script the same? Where do we differ? Related: align `;` to work the same as `\n`.
 - [ ] Should we raise exceptions if there are holes in the data as you process it? When and how?
   
 ## 0.80 milestone
@@ -110,25 +110,25 @@ Nushell language.
 ### Core commands
 
 - [ ] Clean up `str`
-- [ ] Change `echo` to actually echo to the screen
+- [x Change `echo` to actually echo to the screen (now `print` does this)
 - [x] Use another function to mean "send value to pipeline"
-- [ ] Explicit iteration expansion (eg, like what `echo 1..10` is today)
+- [x] Explicit iteration expansion (eg, like what `echo 1..10` is today)
 - [ ] Final list of internal commands
 
 ### Ergonomics
 
-- [ ] Improve adding paths to the PATH
-- [ ] Cache config
+- [x] Improve adding paths to the PATH
+- [x] Cache config
 - [ ] Set baseline performance target
 - [x] Shorthand column `get`
-- [ ] Completions
-- [ ] Script parameters
+- [x] Completions
+- [x] Script parameters
 
 ### Language concepts
 
-- [ ] Imports and modules
-- [ ] When do we iterate? Should `=` iterate?
-- [ ] Can you operate on the incoming pipeline as a single value? If so, how?
+- [x] Imports and modules
+- [x] When do we iterate? Should `=` iterate?
+- [x] Can you operate on the incoming pipeline as a single value? If so, how? (now: `$in`)
 
 ### Configuration
 
@@ -148,7 +148,7 @@ Nushell language.
 
 ### Ergonomics
 
-- [ ] Paging
+- [x] Paging (now: use external pagers)
 - [ ] Per-session history and global history
 - [ ] Polished error messages
 - [x] Fix starship issues
@@ -156,8 +156,8 @@ Nushell language.
 
 ### Final designs
 
-- [ ] External->Internal final design
-- [ ] Internal->External final design
+- [x] External->Internal final design
+- [x] Internal->External final design
 
 ### Shipping quality
 
@@ -170,7 +170,7 @@ Nushell language.
 
 ### Possible inclusion
 
-- [ ] Future-proof ability to process stream in parallel
+- [x] Future-proof ability to process stream in parallel
 
 
 # Drawbacks
