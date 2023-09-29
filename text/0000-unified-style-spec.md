@@ -1,6 +1,6 @@
 - Feature Name: `unified_style_spec`
 - Start Date: 2023-09-29
-- RFC PR: [nushell/rfcs#0000](https://github.com/nushell/rfcs/pull/0000)
+- RFC PR: [nushell/rfcs#0007](https://github.com/nushell/rfcs/pull/7)
 - Nushell Issue: [nushell/nushell#0000](https://github.com/nushell/nushell/issues/0000)
 
 # Summary
